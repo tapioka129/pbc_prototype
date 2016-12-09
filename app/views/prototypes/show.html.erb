@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @prototype.date %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @prototype.title %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @prototype.reason %>
+</p>
+
+<p>
+  <strong>Major change:</strong>
+  <%= @prototype.major_change %>
+</p>
+
+<%= link_to 'Edit', edit_prototype_path(@prototype) %> |
+<%= link_to 'Back', prototypes_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Prototypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Reason</th>
+      <th>Major change</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prototypes.each do |prototype| %>
+      <tr>
+        <td><%= prototype.date %></td>
+        <td><%= prototype.title %></td>
+        <td><%= prototype.reason %></td>
+        <td><%= prototype.major_change %></td>
+        <td><%= link_to 'Show', prototype %></td>
+        <td><%= link_to 'Edit', edit_prototype_path(prototype) %></td>
+        <td><%= link_to 'Destroy', prototype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prototype', new_prototype_path %>
