@@ -59,6 +59,7 @@ class ExperimentsController < ApplicationController
       format.html { redirect_to experiments_url, notice: 'Experiment was successfully destroyed.' }
       format.json { head :no_content }
     end
+    
   end
 
   private
@@ -69,6 +70,6 @@ class ExperimentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
-      params.require(:experiment).permit(:date, :title, :purpose, :summary_result)
+      params.require(:experiment).permit(:date, :title, :purpose, :summary_result, :image, :image_cache, :remove_image)
     end
 end

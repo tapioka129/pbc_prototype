@@ -44,4 +44,22 @@ group :development do
   gem 'spring'
 end
 
+
+#from here, added gemfile
+
+#user form
 gem 'devise'
+
+#uploading files
+gem "carrierwave"
+
+#bootstrap
+gem 'therubyracer' # javascript runtime。lessをコンパイルするために必要
+gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
+gem 'twitter-bootstrap-rails' # Bootstrapの本体
+
+# calender form
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+gem 'bootstrap-datetimepicker-rails'
+

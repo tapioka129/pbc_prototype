@@ -1,7 +1,7 @@
 class CreatePrototypes < ActiveRecord::Migration
   def change
     create_table :prototypes do |t|
-      t.string :date
+      t.date :date
       t.string :title
       t.text :reason
       t.text :major_change
