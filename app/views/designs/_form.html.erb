@@ -25,6 +25,14 @@
   </div>
 </div>
 
+  <div class="field">
+    <%= f.fields_for :change do |builder| %>
+      <%= render "change_form", f: builder %>
+    <% end %>
+    <%= link_to_add_fields "add comment", f, :change %>
+  </div>
+  
+  
   <div class="actions">
     <%= f.submit %>
   </div>

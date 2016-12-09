@@ -53,6 +53,9 @@ gem 'devise'
 #uploading files
 gem "carrierwave"
 
+#uploading multipule files
+gem "jquery-turbolinks"
+
 #bootstrap
 gem 'therubyracer' # javascript runtime。lessをコンパイルするために必要
 gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
