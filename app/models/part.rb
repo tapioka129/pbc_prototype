@@ -1,4 +1,4 @@
 class Part < ActiveRecord::Base
-    belong_to :place
+    belongs_to :place
     
 end
