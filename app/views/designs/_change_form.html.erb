@@ -1,24 +1,30 @@
 <fieldset>
   <%= f.label :comment, "any comment" %>
   <%= f.text_field :comment %><br />
-
-<div class="field">
-    <% if @change.image? %>
-      <div class="thumbnail">
-        <%= image_tag @change.image.url %>
+    <!-- 画像 -->
+    <div class="field">
+        <% if @change.image? %>
+          <div class="thumbnail">
+            <%= image_tag @change.image.url %>
+          </div>
+        <% end %><br>
+        <%= f.label :image %><br>
+        <%= f.file_field :image %>
+        <%= f.hidden_field :image_cache %>
       </div>
-    <% end %><br>
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-  </div>
-  <div class="field">
-    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
-    <% if @change.persisted? && @change.image? %>
-      <label>
-        <%= f.check_box :remove_image %>
-        画像を削除
-      </label>
-    <% end %>
-  </div>
+      <div class="field">
+        <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+        <% if @change.persisted? && @change.image? %>
+          <label>
+            <%= f.check_box :remove_image %>
+            画像を削除
+          </label>
+        <% end %>
+      </div>
+       <!-- DBに保存されていない場合のみ表示 = 更新時のみ表示 -->
+      <% if @design.persisted? %>
+        <%= changes_form.check_box :_destroy %>
+        <%= changes_form.label :_destroy, "削除" %><br />
+      <% end %>
+  
 </fieldset>

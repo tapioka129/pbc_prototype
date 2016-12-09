@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  
 <div class="form-group">
   <div class="field datepicker">
     <%= f.label :date %><br>
@@ -25,6 +26,7 @@
   </div>
 </div>
 
+    <!-- comment と写真 -->
   <div class="field">
     <%= f.fields_for :change do |builder| %>
       <%= render "change_form", f: builder %>
