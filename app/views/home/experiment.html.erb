@@ -20,11 +20,5 @@
   <%= @experiment.summary_result %>
 </p>
 
-<p>
-<strong>picture</strong>
-  <%= image_tag @experiment.image.url @experiment.image.url %>
-</p>
-
-
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
 <%= link_to 'Back', experiments_path %>

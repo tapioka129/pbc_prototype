@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :experiments
   resources :designs
   get 'home/top'
+  get 'home/experiment' =>'home#experiment'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
