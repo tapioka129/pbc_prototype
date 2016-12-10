@@ -16,9 +16,10 @@
   <%= f.collection_select :prototype_id, Prototype.all, :id, :title, {prompt: true}, {class: "form-control prototype-id-field"} %>
   </div>
   
+    <!-- users select -->
   <div class="field">
     <%= f.label :users %><br />
-    <%= collection_check_boxes(:experiment, :user_ids, User.all, :id, :email) do |b| %>
+    <%= f.collection_check_boxes(:user_ids, User.all, :id, :account_name) do |b| %>
       <%= b.label { b.check_box + b.text } %>
     <% end %>
   </div>

@@ -66,6 +66,8 @@ class PrototypesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_prototype
       @prototype = Prototype.find(params[:id])
+      @experiments = @prototype.experiments
+      @designs =@prototype.designs
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

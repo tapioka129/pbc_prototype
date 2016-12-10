@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :experiment_users
   devise_for :users
   get 'home/index'
 
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   resources :experiments
   resources :designs
   get 'home/top'  =>  'home#top'
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
