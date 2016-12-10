@@ -4,5 +4,6 @@ class Experiment < ActiveRecord::Base
     
     mount_uploader :image, ImageUploader
     
+    validates :prototype_id, presence: true
     
 end

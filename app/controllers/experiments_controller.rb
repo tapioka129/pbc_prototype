@@ -70,6 +70,6 @@ class ExperimentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
-      params.require(:experiment).permit(:date, :title, :purpose, :summary_result, :image, :image_cache, :remove_image)
+      params.require(:experiment).permit(:date, :title, :purpose, :summary_result, :image, :image_cache, :remove_image, :prototype_id)
     end
 end
