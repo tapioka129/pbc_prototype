@@ -15,7 +15,7 @@ class DesignsController < ApplicationController
   # GET /designs/new
   def new
     @design = Design.new
-    @design = @change.designs.build
+    @record = @design.records.build 
   end
 
   # GET /designs/1/edit
@@ -70,6 +70,6 @@ class DesignsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def design_params
-      params.require(:design).permit(:date, :summary, changes_attributes: [:id, :comment, :image, :_destroy])
+      params.require(:design).permit(:date, :summary, records_attributes: [:id, :comment, :image, :_destroy])
     end
 end

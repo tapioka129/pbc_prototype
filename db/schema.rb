@@ -11,24 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209145016) do
-
-  create_table "changes", force: :cascade do |t|
-    t.text     "comment"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20161210003923) do
 
   create_table "designs", force: :cascade do |t|
-    t.string   "date"
+    t.date     "date"
     t.text     "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "experiments", force: :cascade do |t|
-    t.string   "date"
+    t.date     "date"
     t.string   "title"
     t.text     "purpose"
     t.text     "summary_result"
@@ -38,7 +31,7 @@ ActiveRecord::Schema.define(version: 20161209145016) do
   end
 
   create_table "parts", force: :cascade do |t|
-    t.string   "date"
+    t.date     "date"
     t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,12 +45,20 @@ ActiveRecord::Schema.define(version: 20161209145016) do
   end
 
   create_table "prototypes", force: :cascade do |t|
-    t.string   "date"
+    t.date     "date"
     t.string   "title"
     t.text     "reason"
     t.text     "major_change"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.text     "comment"
+    t.string   "image"
+    t.integer  "design_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

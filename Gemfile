@@ -64,5 +64,4 @@ gem 'twitter-bootstrap-rails' # Bootstrapの本体
 # calender form
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
-gem 'bootstrap-datetimepicker-rails'
 

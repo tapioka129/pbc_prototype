@@ -3,9 +3,9 @@
   <%= f.text_field :comment %><br />
     <!-- 画像 -->
     <div class="field">
-        <% if @change.image? %>
+        <% if @record.image? %>
           <div class="thumbnail">
-            <%= image_tag @change.image.url %>
+            <%= image_tag @record.image.url %>
           </div>
         <% end %><br>
         <%= f.label :image %><br>
@@ -14,7 +14,7 @@
       </div>
       <div class="field">
         <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
-        <% if @change.persisted? && @change.image? %>
+        <% if @record.persisted? && @record.image? %>
           <label>
             <%= f.check_box :remove_image %>
             画像を削除
@@ -22,9 +22,11 @@
         <% end %>
       </div>
        <!-- DBに保存されていない場合のみ表示 = 更新時のみ表示 -->
+       -->
+       
       <% if @design.persisted? %>
-        <%= changes_form.check_box :_destroy %>
-        <%= changes_form.label :_destroy, "削除" %><br />
+        <%= records_form.check_box :_destroy %>
+        <%= records_form.label :_destroy, "削除" %><br />
       <% end %>
-  
+
 </fieldset>
