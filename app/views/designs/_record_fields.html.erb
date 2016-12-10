@@ -1,5 +1,5 @@
 <fieldset>
-  <%= f.label :comment, "any comment" %>
+  <%= f.label :comment, "any comment" %> <br>
   <%= f.text_field :comment %><br />
     <!-- 画像 -->
     <div class="field">
@@ -22,7 +22,6 @@
         <% end %>
       </div>
        <!-- DBに保存されていない場合のみ表示 = 更新時のみ表示 -->
-       -->
        
       <% if @design.persisted? %>
         <%= records_form.check_box :_destroy %>

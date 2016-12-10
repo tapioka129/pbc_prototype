@@ -11,10 +11,18 @@
     </div>
   <% end %>
 
+  <div class="form-group">
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <div class='input-group date'>
+      <%= f.label :date %><br>
+      <%= f.text_field :date, :class => 'date datepicker form-control' %>
+      <span class="input-group-addon"> 
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
   </div>
+
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
