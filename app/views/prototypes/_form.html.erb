@@ -19,6 +19,14 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+  
+  <div class="field">
+    <%= f.label :users %><br />
+    <%= collection_check_boxes(:post, :user_ids, User.all, :id, :email) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  </div>
+  
   <div class="field">
     <%= f.label :reason %><br>
     <%= f.text_area :reason %>
@@ -30,4 +38,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>

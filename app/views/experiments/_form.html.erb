@@ -16,6 +16,13 @@
   </div>
   
   <div class="field">
+    <%= f.label :users %><br />
+    <%= collection_check_boxes(:experiment, :user_ids, User.all, :id, :email) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  </div>
+  
+  <div class="field">
     <%= f.label :date %><br>
     <%= f.text_field :date %>
   </div>

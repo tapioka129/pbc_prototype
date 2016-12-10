@@ -61,6 +61,7 @@ class PrototypesController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prototype
@@ -69,6 +70,6 @@ class PrototypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prototype_params
-      params.require(:prototype).permit(:date, :title, :reason, :major_change)
+      params.require(:prototype).permit(:date, :title, :reason, :major_change, {:user_ids => []})
     end
 end
