@@ -61,6 +61,9 @@ class ExperimentsController < ApplicationController
     end
     
   end
+  
+
+    
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,6 +73,7 @@ class ExperimentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
-      params.require(:experiment).permit(:date, :title, :purpose, :summary_result, :image, :image_cache, :remove_image, :prototype_id)
+      params.require(:experiment).permit(:date, :title, :purpose, :summary_result, :image, :image_cache, :remove_image, :prototype_id, {:user_ids => []})
     end
+   
 end

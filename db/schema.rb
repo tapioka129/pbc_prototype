@@ -11,14 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210014305) do
+ActiveRecord::Schema.define(version: 20161210050326) do
 
   create_table "designs", force: :cascade do |t|
     t.date     "date"
     t.text     "summary"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "prototype_id"
   end
+
+  create_table "experiment_users", force: :cascade do |t|
+    t.integer  "experiment_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "experiment_users", ["experiment_id"], name: "index_experiment_users_on_experiment_id"
+  add_index "experiment_users", ["user_id"], name: "index_experiment_users_on_user_id"
 
   create_table "experiments", force: :cascade do |t|
     t.date     "date"
@@ -29,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161210014305) do
     t.datetime "updated_at",     null: false
     t.string   "image"
     t.integer  "prototype_id"
+    t.integer  "user_id"
   end
 
   create_table "parts", force: :cascade do |t|
@@ -44,6 +56,16 @@ ActiveRecord::Schema.define(version: 20161210014305) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "prototype_users", force: :cascade do |t|
+    t.integer  "prototype_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "prototype_users", ["prototype_id"], name: "index_prototype_users_on_prototype_id"
+  add_index "prototype_users", ["user_id"], name: "index_prototype_users_on_user_id"
 
   create_table "prototypes", force: :cascade do |t|
     t.date     "date"
