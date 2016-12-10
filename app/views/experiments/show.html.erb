@@ -20,5 +20,14 @@
   <%= @experiment.summary_result %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <% if @experiment.image? %>
+    <div class="thumbnail">
+      <%= image_tag @experiment.image.url %>
+    </div>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
 <%= link_to 'Back', experiments_path %>

@@ -27,6 +27,28 @@
     <%= f.label :summary_result %><br>
     <%= f.text_area :summary_result %>
   </div>
+  
+  <div class="field">
+    <% if @experiment.image? %>
+      <div class="thumbnail">
+        <%= image_tag @experiment.image.url %>
+      </div>
+    <% end %><br>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field">
+    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+    <% if @experiment.persisted? && @experiment.image? %>
+      <label>
+        <%= f.check_box :remove_image %>
+        画像を削除
+      </label>
+    <% end %>
+  </div>
+  <!-- 追加箇所 終了 -->
+  
   <div class="actions">
     <%= f.submit %>
   </div>

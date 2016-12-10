@@ -10,15 +10,21 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="form-group">
+  <div class="field datepicker">
     <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.text_field :date, :class => 'datepicker' %>
+    <span class="input-group-addon"> 
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+    
   </div>
   <div class="field">
     <%= f.label :summary %><br>
     <%= f.text_area :summary %>
   </div>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
