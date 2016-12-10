@@ -7,5 +7,6 @@ class Design < ActiveRecord::Base
     
     belongs_to :prototype
     belongs_to :place
+    
 
 end

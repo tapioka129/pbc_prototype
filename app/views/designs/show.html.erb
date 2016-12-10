@@ -10,5 +10,25 @@
   <%= @design.summary %>
 </p>
 
+ <% @records.each do |record| %>
+      <p>comment</p> 
+        <%= record.comment%> 
+      </p>
+      <p>
+        <%= record.image %>
+      </p>
+      <p>
+        <strong>Image:</strong>
+        <% if record.image? %>
+          <div class="thumbnail">
+            <%= image_tag record.image.url %>
+          </div>
+        <% end %>
+      </p>
+
+  <% end %>
+  
+  
+
 <%= link_to 'Edit', edit_design_path(@design) %> |
 <%= link_to 'Back', designs_path %>

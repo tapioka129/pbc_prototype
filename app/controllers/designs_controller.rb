@@ -10,6 +10,8 @@ class DesignsController < ApplicationController
   # GET /designs/1
   # GET /designs/1.json
   def show
+    @design  = Design.find(params[:id])
+    @records = @design.records
   end
 
   # GET /designs/new
