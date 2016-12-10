@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Experiment:</strong>
+  <%= @experiment_user.experiment %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @experiment_user.user %>
+</p>
+
+<%= link_to 'Edit', edit_experiment_user_path(@experiment_user) %> |
+<%= link_to 'Back', experiment_users_path %>

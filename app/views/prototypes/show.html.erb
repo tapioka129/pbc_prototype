@@ -20,5 +20,39 @@
   <%= @prototype.major_change %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Reason</th>
+      <th>Major change</th>
+    </tr>
+  </thead>
+<!-- experiment-->
+  <tbody>
+    <% @experiments.each do |experiment| %>
+      <tr>
+        <td><%= experiment.date %></td>
+        <td><%= experiment.title %></td>
+        <td><%= experiment.purpose %></td>
+        <td><%= experiment.summary_result %></td>
+      </tr>
+    <% end %>
+    
+    <!-- designs-->
+        <% @designs.each do |design| %>
+      <tr>
+        <td><%= prototype.date %></td>
+        <td><%= prototype.title %></td>
+        <td><%= prototype.reason %></td>
+        <td><%= prototype.major_change %></td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+</table>
+
+
 <%= link_to 'Edit', edit_prototype_path(@prototype) %> |
 <%= link_to 'Back', prototypes_path %>
