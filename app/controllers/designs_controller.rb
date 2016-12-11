@@ -12,6 +12,7 @@ class DesignsController < ApplicationController
   def show
     @design  = Design.find(params[:id])
     @records = @design.records
+    @users = @design.users
   end
 
   # GET /designs/new

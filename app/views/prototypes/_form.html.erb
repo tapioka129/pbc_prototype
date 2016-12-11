@@ -30,7 +30,7 @@
   
   <div class="field">
     <%= f.label :users %><br />
-    <%= collection_check_boxes(:prototype, :user_ids, User.all, :id, :email) do |b| %>
+    <%= collection_check_boxes(:prototype, :user_ids, User.all, :id, :account_name) do |b| %>
       <%= b.label { b.check_box + b.text } %>
     <% end %>
   </div>

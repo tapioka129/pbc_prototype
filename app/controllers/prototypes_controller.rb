@@ -1,6 +1,7 @@
 class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
+  
   # GET /prototypes
   # GET /prototypes.json
   def index
@@ -10,6 +11,7 @@ class PrototypesController < ApplicationController
   # GET /prototypes/1
   # GET /prototypes/1.json
   def show
+    @prototypes = Prototype.all.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /prototypes/new
@@ -66,9 +68,19 @@ class PrototypesController < ApplicationController
     def set_prototype
       @prototype = Prototype.find(params[:id])
       @experiments = @prototype.experiments
-      @designs =@prototype.designs
+      @designs = @prototype.designs
+      @users = @prototype.users
     end
-
+    
+    #sort
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
+   
+    def sort_column
+        Prototype.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+  
     # Never trust parameters from the scary internet, only allow the white list through.
     def prototype_params
       params.require(:prototype).permit(:date, :title, :reason, :major_change, {:user_ids => []})
