@@ -13,6 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20161211035706) do
 
+  create_table "design_users", force: :cascade do |t|
+    t.integer  "design_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "design_users", ["design_id"], name: "index_design_users_on_design_id"
+  add_index "design_users", ["user_id"], name: "index_design_users_on_user_id"
+
   create_table "designs", force: :cascade do |t|
     t.date     "date"
     t.text     "summary"
@@ -20,16 +30,6 @@ ActiveRecord::Schema.define(version: 20161211035706) do
     t.datetime "updated_at",   null: false
     t.integer  "prototype_id"
   end
-
-  create_table "designs_users", force: :cascade do |t|
-    t.integer  "design_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "designs_users", ["design_id"], name: "index_designs_users_on_design_id"
-  add_index "designs_users", ["user_id"], name: "index_designs_users_on_user_id"
 
   create_table "experiment_users", force: :cascade do |t|
     t.integer  "experiment_id"

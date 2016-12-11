@@ -7,12 +7,12 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :account_name
   validates_presence_of :account_name
   
-  belongs_to :design
-  
   has_many :prototype_users
   has_many :prototypes, :through => :prototype_users
   
   has_many :experiment_users
   has_many :experiments, :through => :experiment_users
 
+  has_many :design_users
+  has_many :designs, :through => :design_users
 end
