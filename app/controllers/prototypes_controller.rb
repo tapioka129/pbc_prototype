@@ -1,10 +1,13 @@
 class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
-
+  before_action :find_prototype, only: [:show]
+  helper_method :sort_column, :sort_direction
+  
   # GET /prototypes
   # GET /prototypes.json
   def index
     @prototypes = Prototype.all
+    @prototypes = Prototype.all.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /prototypes/1
@@ -66,12 +69,25 @@ class PrototypesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_prototype
       @prototype = Prototype.find(params[:id])
+    end
+    
+    def find_prototype
       @experiments = @prototype.experiments
       @designs =@prototype.designs
     end
-
+    
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def prototype_params
       params.require(:prototype).permit(:date, :title, :reason, :major_change, {:user_ids => []})
     end
+    
+    def sort_direction
+        %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
+   
+    def sort_column
+        Prototype.column_names.include?(params[:sort]) ? params[:sort] : "title"
+    end
+
 end

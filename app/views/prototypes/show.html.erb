@@ -5,28 +5,29 @@
   <%= @prototype.date %>
 </p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
+  <strong>Title</strong>
   <%= @prototype.title %>
-</p>
+</h1>
 
-<p>
-  <strong>Reason:</strong>
-  <%= @prototype.reason %>
-</p>
 
-<p>
-  <strong>Major change:</strong>
-  <%= @prototype.major_change %>
-</p>
+  <h5>Reasone</h5> <br>
+<p>  <%= @prototype.reason %> </p>
 
+
+  <h5>Major change</h5> <br>
+<p><%= @prototype.major_change %></p>  
+
+  <h5>History</h5> <br>
 <table>
   <thead>
     <tr>
-      <th>Date</th>
+      <th><%= sortable "date", "Date" %></th>
+      <th>Category</th>
       <th>Title</th>
       <th>Reason</th>
       <th>Major change</th>
+      <th>Link</th>
     </tr>
   </thead>
 <!-- experiment-->
@@ -34,9 +35,11 @@
     <% @experiments.each do |experiment| %>
       <tr>
         <td><%= experiment.date %></td>
+        <td>Experiment</td>
         <td><%= experiment.title %></td>
         <td><%= experiment.purpose %></td>
         <td><%= experiment.summary_result %></td>
+        <td><%= link_to "詳細", experiment_path(experiment.id) %></td>
       </tr>
     <% end %>
     
@@ -47,6 +50,7 @@
         <td><%= prototype.title %></td>
         <td><%= prototype.reason %></td>
         <td><%= prototype.major_change %></td>
+        <td><%= link_to "詳細", prototype_path(prototype.id) %></td>
       </tr>
     <% end %>
     
