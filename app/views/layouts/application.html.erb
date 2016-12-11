@@ -20,9 +20,10 @@
       <div id="logo"><%= link_to "PROTOTYPE", root_path %></div>
       <% if user_signed_in? %>
         <ul class="header-right">
-          <li><%= link_to "プロトタイプ一覧", new_user_registration_path %></li>
-          <li><%= link_to "新規実験", new_user_session_path %></li>
-          <li><%= link_to "新規デザイン変更", new_user_session_path %></li>
+          <li><%= link_to "プロトタイプ一覧", prototypes_path %></li>
+          <li><%= link_to "新規プロトタイプ", new_prototype_path %></li>
+          <li><%= link_to "新規実験", new_experiment_path %></li>
+          <li><%= link_to "新規デザイン変更", new_design_path %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </ul>
       <% else %>
