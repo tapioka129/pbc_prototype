@@ -20,7 +20,6 @@
 //= require bootstrap-datetimepicker
 
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 
 

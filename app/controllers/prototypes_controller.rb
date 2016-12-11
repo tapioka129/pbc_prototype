@@ -1,6 +1,5 @@
 class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction
   
   # GET /prototypes
   # GET /prototypes.json
@@ -11,7 +10,6 @@ class PrototypesController < ApplicationController
   # GET /prototypes/1
   # GET /prototypes/1.json
   def show
-    @prototypes = Prototype.all.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /prototypes/new
