@@ -65,3 +65,9 @@ gem 'twitter-bootstrap-rails' # Bootstrapの本体
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+end
