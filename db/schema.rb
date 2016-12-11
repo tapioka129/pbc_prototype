@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210130540) do
+ActiveRecord::Schema.define(version: 20161211011902) do
 
   create_table "designs", force: :cascade do |t|
     t.date     "date"
@@ -74,6 +74,11 @@ ActiveRecord::Schema.define(version: 20161210130540) do
     t.text     "major_change"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "prototypes_users", force: :cascade do |t|
+    t.integer "prototype_id"
+    t.integer "user_id"
   end
 
   create_table "records", force: :cascade do |t|

@@ -25,7 +25,6 @@ class PrototypesController < ApplicationController
   # POST /prototypes.json
   def create
     @prototype = Prototype.new(prototype_params)
-
     respond_to do |format|
       if @prototype.save
         format.html { redirect_to @prototype, notice: 'Prototype was successfully created.' }

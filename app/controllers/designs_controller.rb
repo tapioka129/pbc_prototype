@@ -22,6 +22,7 @@ class DesignsController < ApplicationController
 
   # GET /designs/1/edit
   def edit
+    @record = @design.records.first
   end
 
   # POST /designs
