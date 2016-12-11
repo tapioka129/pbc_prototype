@@ -7,6 +7,20 @@
 
 <h2>Title: <%= @prototype.title %>
 </h2>
+
+<p><strong>User</strong></p>
+<table>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.account_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
 <p>
   <strong>Reason:</strong>
   <%= @prototype.reason %>
@@ -20,7 +34,7 @@
 <table  class="table table-striped">
   <thead>
     <tr>
-      <th>Date</th>
+      <th><%= sortable "date", "Date" %></th>
       <th>Title</th>
       <th>Reason</th>
       <th>Summary</th>
