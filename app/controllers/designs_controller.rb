@@ -30,7 +30,11 @@ class DesignsController < ApplicationController
   # POST /designs.json
   def create
     @design = Design.new(design_params)
-
+    
+    params["design"]["user_ids"].each do |user_id|
+      DesignUser.create(user_id: user_id, design: @design) unless user_id.blank?
+    end
+    
     respond_to do |format|
       if @design.save
         format.html { redirect_to @design, notice: 'Design was successfully created.' }

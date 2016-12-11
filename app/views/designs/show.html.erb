@@ -10,6 +10,18 @@
   <%= @design.prototype_id %>
 </p>
 
+<p><strong>User</strong></p>
+<table>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.account_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <p>
   <strong>Summary:</strong>
   <%= @design.summary %>
