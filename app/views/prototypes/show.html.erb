@@ -5,11 +5,8 @@
   <%= @prototype.date %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @prototype.title %>
-</p>
-
+<h2>Title: <%= @prototype.title %>
+</h2>
 <p>
   <strong>Reason:</strong>
   <%= @prototype.reason %>
@@ -20,13 +17,14 @@
   <%= @prototype.major_change %>
 </p>
 
-<table>
+<table  class="table table-striped">
   <thead>
     <tr>
       <th>Date</th>
       <th>Title</th>
       <th>Reason</th>
-      <th>Major change</th>
+      <th>Summary</th>
+      <th>Summary2</th>
     </tr>
   </thead>
 <!-- experiment-->
@@ -34,9 +32,11 @@
     <% @experiments.each do |experiment| %>
       <tr>
         <td><%= experiment.date %></td>
+        <td>Experiment</td>
         <td><%= experiment.title %></td>
         <td><%= experiment.purpose %></td>
         <td><%= experiment.summary_result %></td>
+        <td><%= link_to "詳細", experiment_path(experiment.id) %></td>
       </tr>
     <% end %>
     
@@ -44,15 +44,21 @@
         <% @designs.each do |design| %>
       <tr>
         <td><%= prototype.date %></td>
+        <td>Design </td>
         <td><%= prototype.title %></td>
         <td><%= prototype.reason %></td>
         <td><%= prototype.major_change %></td>
+        <td><%= link_to "詳細", prototype_path(prototype.id) %></td>
       </tr>
     <% end %>
     
   </tbody>
 </table>
 
+<%= link_to 'New Experiment', new_experiment_path %> |
+<%= link_to 'New Change',new_design_path %>
+<br>
 
 <%= link_to 'Edit', edit_prototype_path(@prototype) %> |
 <%= link_to 'Back', prototypes_path %>
+
