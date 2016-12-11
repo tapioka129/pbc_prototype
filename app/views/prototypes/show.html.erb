@@ -25,6 +25,7 @@
       <th>Reason</th>
       <th>Summary</th>
       <th>Summary2</th>
+      <th>Detail</th>
     </tr>
   </thead>
 <!-- experiment-->
@@ -43,12 +44,12 @@
     <!-- designs-->
         <% @designs.each do |design| %>
       <tr>
-        <td><%= prototype.date %></td>
+        <td><%= design.date %></td>
         <td>Design </td>
-        <td><%= prototype.title %></td>
-        <td><%= prototype.reason %></td>
-        <td><%= prototype.major_change %></td>
-        <td><%= link_to "詳細", prototype_path(prototype.id) %></td>
+        <td>NA</td>
+        <td><%= design.summary %></td>
+        <td>NA</td>
+        <td><%= link_to "詳細", design_path(design.id) %></td>
       </tr>
     <% end %>
     
